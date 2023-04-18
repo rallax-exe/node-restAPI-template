@@ -9,7 +9,7 @@ class Server {
         //Crea la app de express
         this.app  = express();
         //Crea la prop port
-        this.port = process.env.PORT;
+        this.port = process.env.PORT || 3000;
 
         //Ruta del API de usuarios
         this.usuariosPath = '/api/usuarios';
