@@ -45,7 +45,9 @@ UsuarioSchema.methods.toJSON = function() {
         Saca la version y el password de la respuesta para ignorarlos 
         y lo demas se mantiene como un objeto literal
     */
-    const { __v, password, ...usuario } = this.toObject();
+    const { __v, password, _id, ...usuario } = this.toObject();
+    //Agrega una nueva prop llamada uid
+    usuario.uid = _id;
     return usuario;
 }
 
