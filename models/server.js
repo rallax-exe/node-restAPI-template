@@ -14,6 +14,8 @@ class Server {
 
         //Ruta del API de usuarios
         this.usuariosPath = '/api/usuarios';
+        //Ruta del API de auth
+        this.authPath = '/api/auth';
 
         //Conectar con base de datos
         this.conectarDB();
@@ -55,6 +57,7 @@ class Server {
 
     routes() {
         //Rutas del servidor 
+        this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.usuariosPath, require('../routes/usuarios'));
     }
 
