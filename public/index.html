@@ -32,7 +32,7 @@
             const body = { id_token: response.credential };
 
             //Google Token : ID_TOKEN
-            fetch('https://node-restapi-template-production.up.railway.app/api/auth/google', {
+            fetch('http://localhost:8080/api/auth/google', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
