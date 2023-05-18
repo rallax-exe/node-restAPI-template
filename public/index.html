@@ -24,7 +24,7 @@
     </button>
 
 
-    <script src="https://node-restapi-template-production.up.railway.app/api/auth/google" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
         function handleCredentialResponse(response) {
 
@@ -32,7 +32,7 @@
             const body = { id_token: response.credential };
 
             //Google Token : ID_TOKEN
-            fetch('http://localhost:8080/api/auth/google', {
+            fetch('https://node-restapi-template-production.up.railway.app/api/auth/google', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
