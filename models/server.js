@@ -12,10 +12,19 @@ class Server {
         //Crea la prop port
         this.port = process.env.PORT || 3000;
 
-        //Ruta del API de usuarios
-        this.usuariosPath = '/api/usuarios';
-        //Ruta del API de auth
-        this.authPath = '/api/auth';
+
+        this.paths = {
+
+            //Ruta del API de auth
+            auth: '/api/auth',
+            //Ruta del API de categorias
+            categorias: '/api/categorias',
+            //Ruta del API de usuarios
+            usuarios: '/api/usuarios',
+            //Ruta del API de usuarios
+            productos: '/api/productos'
+
+        }
 
         //Conectar con base de datos
         this.conectarDB();
@@ -57,8 +66,10 @@ class Server {
 
     routes() {
         //Rutas del servidor 
-        this.app.use(this.authPath, require('../routes/auth'));
-        this.app.use(this.usuariosPath, require('../routes/usuarios'));
+        this.app.use(this.paths.auth, require('../routes/auth'));
+        this.app.use(this.paths.usuarios, require('../routes/usuarios'));
+        this.app.use(this.paths.categorias, require('../routes/categorias'));
+        this.app.use(this.paths.productos, require('../routes/productos'));
     }
 
     listen() {
